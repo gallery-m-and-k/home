@@ -1,2 +1,29 @@
 @charset "utf-8";
 @import url(style-common.css);
+
+/* -------------------------------------------------- */
+/* メインエリア */
+/* -------------------------------------------------- */
+
+.mainArea > .images.list {
+  padding-top: calc(12vh);
+  padding-bottom: calc(12vh);
+  padding-right: 4vw;
+  padding-left: 15vw;
+
+  flex-flow: wrap;
+}
+
+.mainArea > .images.list > * {
+  max-width: calc(50% - 40px);
+  padding: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .mainArea > .images.list {
+    justify-content: center;
+
+    padding-right: 5vw;
+    padding-left: 5vh;
+  }
+}

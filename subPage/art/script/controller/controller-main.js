@@ -39,8 +39,6 @@ $(document).ready(function () {
         image.classList.add("item");
         image.classList.add("clickable");
         image.setAttribute("data-src", folderPath + "/click/" + data.name);
-        // image.setAttribute("data-cap", folderPath + "/" + data.name + "_c");
-        // image.setAttribute("data-col", data.color);
         imageContainer.appendChild(image);
 
         // ランダム移動
@@ -77,7 +75,7 @@ $(document).ready(function () {
             sessionStorage.setItem("color", item.getAttribute("data-col"));
 
             // ページ遷移
-            open("gallery.html", "_self");
+            open("artDetail.html", "_self");
           });
         });
       }

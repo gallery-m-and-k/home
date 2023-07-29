@@ -54,12 +54,12 @@ body {
   cursor: pointer;
 }
 
-.menuList .item img {
+.menuList .item > * {
   width: auto;
   height: 100%;
 }
 
-.menuList .item.disabled img {
+.menuList .item.disabled > * {
   opacity: 0.25;
   cursor: initial;
 }
@@ -160,17 +160,18 @@ button.hamburgerButton.open::after {
   align-items: center;
 }
 
+.mainArea > .images > * {
+  width: auto;
+  max-width: 65%; /* TODO: 要調整 */
+  object-fit: contain;
+}
+
 .mainArea > .images.single {
   padding-top: 132px;
 }
 
-.mainArea > .images.list {
-  padding-top: calc(12vh);
-  padding-bottom: calc(12vh);
-  padding-right: 4vw;
-  padding-left: 15vw;
-
-  flex-flow: wrap;
+.mainArea > .images.single > * {
+  margin-bottom: 6vh;
 }
 
 .mainArea > .images.link {
@@ -181,17 +182,7 @@ button.hamburgerButton.open::after {
   padding-bottom: 0;
 }
 
-.mainArea > .images img {
-  width: auto;
-  max-width: 65%; /* ★要調整 */
-  object-fit: contain;
-}
-
-.mainArea > .images.single img {
-  margin-bottom: 6vh;
-}
-
-.mainArea > .images.link img {
+.mainArea > .images.link > * {
   width: 37%;
   max-height: 50vh;
 
@@ -210,42 +201,22 @@ button.hamburgerButton.open::after {
   }
 }
 
-.mainArea > .images.list img {
-  max-width: calc(100% - 40px);
-}
-
-.mainArea > .images.list img.big {
-  margin-bottom: 100px;
-}
-
-.mainArea > .images.list img:not(:first-child).big {
-  margin-top: 150px;
-}
-
-.mainArea > .images.list img:not(.big) {
-  width: calc(50% - 10px * 4);
-  margin: 10px;
-}
-
 @media screen and (max-width: 700px) {
   .mainArea > .images {
     margin-left: 0px;
   }
 
-  .mainArea > .images.list {
-    justify-content: center;
-
-    padding-right: 5vw;
-    padding-left: 5vh;
-  }
-
-  .mainArea > .images img {
+  .mainArea > .images > * {
     width: 100% !important;
   }
 
-  .mainArea > .images.link img {
+  .mainArea > .images.link > * {
     width: 60% !important;
   }
+}
+
+a > img {
+  width: 100%;
 }
 
 /* -------------------------------------------------- */
