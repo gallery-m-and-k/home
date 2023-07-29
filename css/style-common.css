@@ -1,0 +1,330 @@
+@charset "utf-8";
+
+:root {
+  --sp-menu-height: 50px;
+
+  --menu-button-width: 32px;
+  --menu-button-height: 30px;
+
+  --defaulr-string-colr: rgb(255, 220, 50);
+}
+
+* {
+  user-select: none;
+}
+
+body {
+  background-color: rgb(185, 190, 185);
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* -------------------------------------------------- */
+/* メニューリスト */
+/* -------------------------------------------------- */
+
+.menuList {
+  width: 270px;
+  height: 100vh;
+  background-color: rgb(255, 170, 0);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  padding-top: 35px;
+
+  /* transition: all 0.25s; */
+}
+
+.menuList .item {
+  width: auto;
+  height: 28px;
+
+  padding: 15px 30px;
+
+  cursor: pointer;
+}
+
+.menuList .item img {
+  width: auto;
+  height: 100%;
+}
+
+.menuList .item.disabled img {
+  opacity: 0.25;
+  cursor: initial;
+}
+
+@media screen and (max-width: 700px) {
+  .menuList {
+    width: 100vw;
+    height: var(--sp-menu-height);
+
+    padding-top: 0;
+  }
+
+  .menuList:not(.open) > * {
+    display: none;
+    opacity: 0;
+  }
+
+  .menuList.open {
+    height: 100vh;
+
+    padding-top: calc(var(--menu-button-height) + 30px);
+  }
+}
+
+/* ハンバーガーボタン（スマホ用） */
+
+button.hamburgerButton {
+  width: var(--menu-button-width);
+  height: var(--menu-button-height);
+
+  position: fixed;
+  top: 10px;
+  left: 15px;
+  z-index: 3000;
+
+  background: none;
+  border: none;
+
+  transition: all 0.25s;
+}
+
+button.hamburgerButton::after,
+button.hamburgerButton::before {
+  display: block;
+  background: var(--defaulr-string-colr);
+  width: 100%;
+  height: 1px;
+
+  position: absolute;
+  top: calc(50% - 1px);
+  content: "";
+
+  transition: all 0.25s;
+}
+
+button.hamburgerButton::before {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 0 var(--defaulr-string-colr);
+}
+
+button.hamburgerButton::after {
+  transform: translateY(8px);
+}
+
+button.hamburgerButton::after,
+button.hamburgerButton::before {
+  transition: transform 0.3s;
+}
+
+button.hamburgerButton.open::before {
+  transform: rotate(30deg);
+  box-shadow: 0 0 0 var(--defaulr-string-colr);
+}
+
+button.hamburgerButton.open::after {
+  transform: rotate(-30deg);
+}
+
+@media screen and (min-width: 700px) {
+  .hamburgerButton {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------- */
+/* メインエリア */
+/* -------------------------------------------------- */
+
+.mainArea {
+  flex: 1;
+}
+
+.mainArea > .images {
+  margin-left: 270px;
+  padding-top: 10vh;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.mainArea > .images.single {
+  padding-top: 132px;
+}
+
+.mainArea > .images.list {
+  padding-top: calc(12vh);
+  padding-bottom: calc(12vh);
+  padding-right: 4vw;
+  padding-left: 15vw;
+
+  flex-flow: wrap;
+}
+
+.mainArea > .images.link {
+  height: 100vh;
+  justify-content: center;
+
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.mainArea > .images img {
+  width: auto;
+  max-width: 65%; /* ★要調整 */
+  object-fit: contain;
+}
+
+.mainArea > .images.single img {
+  margin-bottom: 6vh;
+}
+
+.mainArea > .images.link img {
+  width: 37%;
+  max-height: 50vh;
+
+  animation: clickHere 1.75s infinite;
+}
+
+@keyframes clickHere {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.mainArea > .images.list img {
+  max-width: calc(100% - 40px);
+}
+
+.mainArea > .images.list img.big {
+  margin-bottom: 100px;
+}
+
+.mainArea > .images.list img:not(:first-child).big {
+  margin-top: 150px;
+}
+
+.mainArea > .images.list img:not(.big) {
+  width: calc(50% - 10px * 4);
+  margin: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .mainArea > .images {
+    margin-left: 0px;
+  }
+
+  .mainArea > .images.list {
+    justify-content: center;
+
+    padding-right: 5vw;
+    padding-left: 5vh;
+  }
+
+  .mainArea > .images img {
+    width: 100% !important;
+  }
+
+  .mainArea > .images.link img {
+    width: 60% !important;
+  }
+}
+
+/* -------------------------------------------------- */
+/* キャプション */
+/* -------------------------------------------------- */
+
+.caption {
+  width: 375px;
+  height: auto;
+  object-fit: contain;
+
+  position: fixed;
+  top: calc(35px + 12px);
+  left: 300px;
+
+  pointer-events: none;
+}
+
+.caption > img {
+  width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .caption {
+    width: 150px;
+    top: calc(var(--sp-menu-height) + 20px);
+    left: 20px;
+  }
+}
+
+/* -------------------------------------------------- */
+/* ページ名 */
+/* -------------------------------------------------- */
+
+.pageName {
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+.pageName > img {
+  height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .pageName {
+    height: 22px;
+
+    top: calc(var(--sp-menu-height));
+    right: 0px;
+  }
+}
+
+/* -------------------------------------------------- */
+/* 作者名 */
+/* -------------------------------------------------- */
+
+.name {
+  width: 350px;
+  height: auto;
+  object-fit: contain;
+
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.name > img {
+  width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .name {
+    width: 205px;
+    bottom: 10px;
+    right: 20px;
+  }
+}
