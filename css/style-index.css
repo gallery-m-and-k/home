@@ -15,7 +15,7 @@
 }
 
 .mainArea > .images.list > * {
-  max-width: calc(50% - 40px);
+  max-width: 350px !important; /* TODO: 要調整 */
   padding: 10px;
 }
 
