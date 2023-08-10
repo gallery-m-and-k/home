@@ -55,15 +55,15 @@ body {
   display: flex;
 
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 40px;
+  right: 40px;
   z-index: 3000;
 
   animation: startCategory 0.25s ease;
 }
 
 .categoryButtonArea > .categoryButton {
-  height: 30px;
+  height: 27px;
 
   transition: transform 0.25s;
 }
