@@ -15,11 +15,11 @@
 }
 
 .mainArea > .images.list > * {
-  max-width: 40%;
+  max-width: 44%;
   padding: 10px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
   .mainArea > .images.list {
     justify-content: center;
 
@@ -28,18 +28,6 @@
   }
 
   .mainArea > .images.list > * {
-    max-width: 40%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .mainArea > .images.list > * {
     max-width: none !important;
-  }
-}
-
-@media screen and (min-width: 1520px) {
-  .mainArea > .images.list > * {
-    max-width: 30% !important;
   }
 }
