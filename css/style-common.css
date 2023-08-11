@@ -64,7 +64,7 @@ body {
   cursor: initial;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .menuList {
     width: 100vw;
     height: var(--sp-menu-height);
@@ -201,7 +201,7 @@ button.hamburgerButton.open::after {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .mainArea > .images {
     margin-left: 0px;
   }
@@ -243,7 +243,7 @@ a > img {
   width: 100%;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .caption {
     width: 150px;
     top: calc(var(--sp-menu-height) + 20px);
@@ -269,7 +269,7 @@ a > img {
   height: 100%;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .pageName {
     height: 22px;
 
@@ -296,7 +296,7 @@ a > img {
   width: 100%;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .name {
     width: 205px;
     bottom: 10px;

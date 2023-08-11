@@ -19,7 +19,7 @@
   padding: 10px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .mainArea > .images.list {
     justify-content: center;
 
@@ -27,6 +27,12 @@
     padding-left: 5vh;
   }
 
+  .mainArea > .images.list > * {
+    max-width: 40%;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .mainArea > .images.list > * {
     max-width: none !important;
   }
