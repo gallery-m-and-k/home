@@ -15,7 +15,7 @@
 }
 
 .mainArea > .images.list > * {
-  max-width: 350px !important; /* TODO: 要調整 */
+  max-width: 40% !important;
   padding: 10px;
 }
 
@@ -25,5 +25,11 @@
 
     padding-right: 5vw;
     padding-left: 5vh;
+  }
+}
+
+@media screen and (min-width: 1520px) {
+  .mainArea > .images.list > * {
+    max-width: 30% !important;
   }
 }

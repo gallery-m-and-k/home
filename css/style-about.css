@@ -1,7 +1,9 @@
 @charset "utf-8";
 @import url(style-common.css);
 
-.caption {
-  width: 600px;
-  max-width: calc(100% - 40px);
+@media screen and (max-width: 700px) {
+  .caption {
+    width: 100%;
+    max-width: calc(90% - 40px);
+  }
 }
