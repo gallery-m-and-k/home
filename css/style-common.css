@@ -245,7 +245,7 @@ a > img {
 
 @media screen and (max-width: 700px) {
   .caption {
-    width: 150px;
+    width: 210px;
     top: calc(var(--sp-menu-height) + 20px);
     left: 20px;
   }
