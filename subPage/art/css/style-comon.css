@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: rgb(173, 173, 173);
 }
 
 .clickable {
@@ -101,3 +101,45 @@ img.item {
 }
 
 /* ------------------------------------------------------------- */
+
+.title {
+  pointer-events: none;
+}
+
+.bottomButton {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+
+  z-index: 500;
+}
+
+.bottomButton > img {
+  width: auto;
+  height: 35px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 700px) {
+  .title {
+    height: auto;
+
+    position: fixed;
+    top: 50px;
+  }
+
+  .title > img {
+    width: auto;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .buttonListView {
+    right: 30px;
+    bottom: 30px;
+  }
+
+  .buttonListView > img {
+    height: 30px;
+  }
+}

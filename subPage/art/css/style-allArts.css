@@ -1,0 +1,41 @@
+@charset "utf-8";
+@import url(style-comon.css);
+
+/* ------------------------------------------------------------- */
+
+.title {
+  width: auto;
+  height: auto;
+
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
+
+.title > img {
+  width: auto;
+  height: 50px;
+  object-fit: contain;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery > .item {
+  width: 200px;
+  height: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery > .item > img {
+  width: 75%;
+  height: auto;
+  max-width: 110px;
+  max-height: 110px;
+  object-fit: contain;
+}

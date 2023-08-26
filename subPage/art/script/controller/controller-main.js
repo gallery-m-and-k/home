@@ -75,7 +75,7 @@ $(document).ready(function () {
             sessionStorage.setItem("color", item.getAttribute("data-col"));
 
             // ページ遷移
-            open("artDetail.html", "_self");
+            open("detail.html", "_self");
           });
         });
       }
