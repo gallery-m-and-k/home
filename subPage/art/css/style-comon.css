@@ -134,12 +134,12 @@ img.item {
     object-fit: contain;
   }
 
-  .buttonListView {
+  .bottomButton {
     right: 30px;
     bottom: 30px;
   }
 
-  .buttonListView > img {
+  .bottomButton > img {
     height: 30px;
   }
 }

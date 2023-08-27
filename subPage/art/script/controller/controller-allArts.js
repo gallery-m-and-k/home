@@ -27,7 +27,7 @@ $(document).ready(function () {
         division.classList.add("clickable");
 
         const image = document.createElement("img");
-        image.setAttribute("src", folderPath + "/click/" + data.name);
+        image.setAttribute("src", folderPath + "/list/" + data.name);
 
         division.appendChild(image);
         imageContainer.appendChild(division);
