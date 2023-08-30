@@ -58,9 +58,9 @@ body {
   .container img {
     width: auto;
     max-width: none;
-    max-height: 35.5vh;
+    max-height: 35.5svh;
 
-    margin: 5vh 0;
+    margin: 5svh 0;
   }
 
   /* PREV/NEXTボタン */
@@ -70,22 +70,22 @@ body {
   }
 
   #buttonPrev {
-    top: 25vh;
+    top: 25svh;
     right: 50vw;
     transform: translateX(50%) rotate(90deg);
   }
 
   #buttonNext {
     top: auto;
-    bottom: 25vh;
-    left: 50vw;
+    bottom: 25svh;
+    left: 50svw;
     transform: translateX(-50%) rotate(90deg);
   }
 
   /* 戻るボタン */
 
   .bottomButton {
-    bottom: 22.5%;
+    bottom: 22.5svh;
     transform: translateY(-50%);
   }
 
