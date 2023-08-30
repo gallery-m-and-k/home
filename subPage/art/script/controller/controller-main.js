@@ -5,9 +5,6 @@ window.onpageshow = function (event) {
   }
 };
 
-// 表示する画像の数
-const numImagesToShow = 15;
-
 $(document).ready(function () {
   /**
    * 初期化
@@ -15,71 +12,77 @@ $(document).ready(function () {
 
   // 要素を追加する箇所を指定
   const imageContainer = document.querySelector(".container");
-  const id = imageContainer.getAttribute("id");
+  const category = imageContainer.getAttribute("id");
 
-  // JSONファイルを取得する。
-  const folderPath = "./image/" + id;
-  fetch(folderPath + "/index.json")
-    .then((response) => response.json())
-    .then((data) => {
-      // リストからランダムにいくつかのファイル名を抜き出す。
-      const randomFilenames = [];
-      while (randomFilenames.length < numImagesToShow) {
-        const randomIndex = Math.floor(Math.random() * data.length);
-        const randomFilename = data[randomIndex];
-        if (!randomFilenames.includes(randomFilename)) {
-          randomFilenames.push(randomFilename);
-        }
-      }
+  // 表示する画像の数
+  const numImagesToShow = 15;
 
-      // 抜き出したファイル名を使用して、画像を表示する。
-      randomFilenames.forEach((data) => {
-        // 要素作成
-        const image = document.createElement("img");
-        image.classList.add("item");
-        image.classList.add("clickable");
-        image.setAttribute("data-src", folderPath + "/click/" + data.name);
-        imageContainer.appendChild(image);
+  // 画像の総数
+  const imageMaxCount = 259;
 
-        // ランダム移動
-        moveElement(image, true);
+  // 汎用データをセッションストレージに記憶
+  sessionStorage.setItem("category", category);
+  sessionStorage.setItem("imageMax", imageMaxCount);
+
+  // ランダムにインデックスを指定
+  let arr = [];
+  for (let i = 0; i < imageMaxCount; i++) {
+    arr[i] = i + 1;
+  }
+  let len = arr.length;
+  let targets = [];
+  for (let j = 0; j < numImagesToShow; j++, len--) {
+    rndNum = Math.floor(Math.random() * len);
+    targets.push(arr[rndNum]);
+    arr[rndNum] = arr[len - 1];
+  }
+
+  // 抜き出したファイル名を使用して、画像を表示する。
+  targets.forEach((k) => {
+    const folderPath = "./image/" + category;
+
+    // 要素作成
+    const image = document.createElement("img");
+    image.classList.add("item");
+    image.classList.add("clickable");
+    image.setAttribute(
+      "data-src",
+      folderPath + "/click/art_" + String(k).padStart(4, "0") + ".png"
+    );
+    image.setAttribute("data-index", k);
+    imageContainer.appendChild(image);
+
+    // ランダム移動
+    moveElement(image, true);
+  });
+
+  const imgElements = document.querySelectorAll("img.item");
+  for (let i = 0; i < imgElements.length; i++) {
+    const item = imgElements[i];
+    // 遅延読み込み
+    item.src = item.getAttribute("data-src");
+    item.removeAttribute("data-src");
+
+    // 画像読み込み完了したときの処理
+    item.addEventListener("load", () => {
+      // 次の移動をスケジュールする
+      moveElement(item);
+
+      // 移動終了後に、次の移動をスケジュールするように設定
+      item.addEventListener("transitionend", () => {
+        moveElement(item);
       });
-    })
 
-    // エラー時
-    .catch((error) => console.error(error))
+      // イベント付加
+      item.addEventListener("click", () => {
+        // セッションストレージに表示画像データをセット
+        sessionStorage.setItem("index", item.getAttribute("data-index"));
 
-    // 処理終了
-    .finally(() => {
-      const img_elements = document.querySelectorAll("img.item");
-      for (let i = 0; i < img_elements.length; i++) {
-        const item = img_elements[i];
-        // 遅延読み込み
-        item.src = item.getAttribute("data-src");
-        item.removeAttribute("data-src");
-
-        // 画像読み込み完了したときの処理
-        item.addEventListener("load", () => {
-          // 次の移動をスケジュールする
-          moveElement(item);
-
-          // 移動終了後に、次の移動をスケジュールするように設定
-          item.addEventListener("transitionend", () => {
-            moveElement(item);
-          });
-
-          // イベント付加
-          item.addEventListener("click", () => {
-            // セッションストレージに表示画像データをセット
-            sessionStorage.setItem("image", item.src);
-            sessionStorage.setItem("color", item.getAttribute("data-col"));
-
-            // ページ遷移
-            open("detail.html", "_self");
-          });
-        });
-      }
+        // ページ遷移
+        open("detail.html", "_self");
+      });
     });
+  }
 });
 // ================================================================
 

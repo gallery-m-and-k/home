@@ -4,37 +4,46 @@ $(document).ready(function () {
   const imageContainer = document.querySelector(".gallery");
 
   // 表示する画像の数
-  const numImagesToShow = 234;
+  const imageMaxCount = 259;
 
   const folderPath = "./image/colorAndShape";
-  fetch(folderPath + "/index.json")
-    .then((response) => response.json())
-    .then((data) => {
-      // リストからランダムにいくつかのファイル名を抜き出す。
-      const randomFilenames = [];
-      while (randomFilenames.length < numImagesToShow) {
-        const randomIndex = Math.floor(Math.random() * data.length);
-        const randomFilename = data[randomIndex];
-        if (!randomFilenames.includes(randomFilename)) {
-          randomFilenames.push(randomFilename);
-        }
-      }
 
-      // 要素を追加。
-      randomFilenames.forEach((data) => {
-        const division = document.createElement("div");
-        division.classList.add("item");
-        division.classList.add("clickable");
+  // ランダムにインデックスを指定
+  let arr = [];
+  for (let i = 0; i < imageMaxCount; i++) {
+    arr[i] = i + 1;
+  }
+  let len = arr.length;
+  let targets = [];
+  for (let j = 0; j < imageMaxCount; j++, len--) {
+    rndNum = Math.floor(Math.random() * len);
+    targets.push(arr[rndNum]);
+    arr[rndNum] = arr[len - 1];
+  }
 
-        const image = document.createElement("img");
-        image.setAttribute("src", folderPath + "/list/" + data.name);
+  // 要素を追加。
+  targets.forEach((id) => {
+    const division = document.createElement("div");
+    division.classList.add("item");
+    division.classList.add("clickable");
 
-        division.appendChild(image);
-        imageContainer.appendChild(division);
-      });
-    })
+    const image = document.createElement("img");
+    image.setAttribute(
+      "src",
+      folderPath + "/list/art_" + String(id).padStart(4, "0") + ".png"
+    );
 
-    // エラー時
-    .catch((error) => console.error(error));
+    division.appendChild(image);
+    imageContainer.appendChild(division);
+
+    // イベント付加
+    division.addEventListener("click", () => {
+      // セッションストレージに表示画像データをセット
+      sessionStorage.setItem("index", id);
+
+      // ページ遷移
+      open("detail.html", "_self");
+    });
+  });
   // ================================================================
 });

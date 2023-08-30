@@ -10,9 +10,26 @@
   </head>
 
   <body>
-    <img id="caption" />
-    <div class="exhibit">
-      <img id="displayItem" />
-    </div>
+    <!-- 画像表示エリア -->
+    <div class="container"></div>
+
+    <!-- 戻るボタン -->
+    <img
+      id="buttonPrev"
+      class="button movePrev"
+      src="./image/system/button/artsite_arrow_2.png"
+    />
+
+    <!-- 進む -->
+    <img
+      id="buttonNext"
+      class="button moveNext"
+      src="./image/system/button/artsite_arrow_1.png"
+    />
+
+    <!-- 一覧ボタン -->
+    <a class="bottomButton" onclick="history.back(-1);return false;">
+      <img src="./image/system/button/artsite_back.png" />
+    </a>
   </body>
 </html>
