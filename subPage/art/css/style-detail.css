@@ -3,44 +3,25 @@
 
 body {
   background: #000;
+  overflow: hidden;
 }
 
 /* 画像表示エリア */
 .container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
-  align-items: center;
-  justify-content: center;
 }
 
-.exhibit {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.exhibit > img {
-  width: auto;
-  max-width: 50vw;
-  height: auto;
-  max-height: 80vh;
-  object-fit: contain;
-}
-
-.container > .exhibit.movePrev {
-  width: auto;
+.container img {
+  width: 100%;
+  max-width: 40vw;
   height: auto;
 
-  right: 90vw;
-}
-
-.container > .exhibit.moveNext {
-  width: auto;
-  height: auto;
-
-  left: 90vw;
+  margin: 0 5vw;
 }
 
 /* ボタン */
@@ -59,29 +40,26 @@ body {
 }
 
 #buttonPrev {
-  right: 80vw;
+  right: 72.5vw;
 }
 
 #buttonNext {
-  left: 80vw;
+  left: 72.5vw;
 }
 
 @media screen and (max-width: 700px) {
   /* 画像 */
-  .container > .exhibit.movePrev {
-    bottom: 80vh;
-    right: auto;
+  .container {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .container > .exhibit.moveNext {
-    top: 80vh;
-    left: auto;
-  }
-
-  .exhibit > img {
-    width: 85vw;
-    max-height: 40vh;
+  .container img {
+    width: auto;
     max-width: none;
+    max-height: 35.5vh;
+
+    margin: 5vh 0;
   }
 
   /* PREV/NEXTボタン */

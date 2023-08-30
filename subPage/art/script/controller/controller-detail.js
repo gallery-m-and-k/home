@@ -49,18 +49,15 @@ $(document).ready(function () {
       "/view/art_" +
       String(targetId).padStart(4, "0") +
       ".jpg";
-    const exhibit = document.createElement("div");
-    exhibit.classList.add("exhibit");
-    if (i == -1) {
-      exhibit.classList.add("movePrev");
-    }
-    if (i == 1) {
-      exhibit.classList.add("moveNext");
-    }
     const image = document.createElement("img");
     image.src = fileName;
-    container.appendChild(exhibit);
-    exhibit.appendChild(image);
+    if (i == -1) {
+      image.classList.add("movePrev");
+    }
+    if (i == 1) {
+      image.classList.add("moveNext");
+    }
+    container.appendChild(image);
   }
 
   // クリックイベント
