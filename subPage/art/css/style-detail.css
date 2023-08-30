@@ -67,8 +67,10 @@ body {
 }
 
 @media screen and (max-width: 700px) {
+  /* 画像 */
   .exhibit > img {
     width: 80vw;
+    max-height: 30vh;
     max-width: none;
   }
 
@@ -82,11 +84,10 @@ body {
     left: auto;
   }
 
-  /* ボタン */
+  /* PREV/NEXTボタン */
   .button {
     width: 30px;
     min-width: 0;
-    max-width: 25%;
   }
 
   #buttonPrev {
@@ -101,6 +102,8 @@ body {
     left: 50vw;
     transform: translateX(-50%) rotate(90deg);
   }
+
+  /* 戻るボタン */
 
   .bottomButton {
     bottom: 22.5%;

@@ -38,8 +38,9 @@ $(document).ready(function () {
 
     // イベント付加
     division.addEventListener("click", () => {
-      // セッションストレージに表示画像データをセット
+      // セッションストレージにデータをセット
       sessionStorage.setItem("index", id);
+      sessionStorage.setItem("prev", "./allArts.html");
 
       // ページ遷移
       open("detail.html", "_self");

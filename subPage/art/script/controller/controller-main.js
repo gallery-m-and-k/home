@@ -75,8 +75,9 @@ $(document).ready(function () {
 
       // イベント付加
       item.addEventListener("click", () => {
-        // セッションストレージに表示画像データをセット
+        // セッションストレージにデータをセット
         sessionStorage.setItem("index", item.getAttribute("data-index"));
+        sessionStorage.setItem("prev", "./index.html");
 
         // ページ遷移
         open("detail.html", "_self");

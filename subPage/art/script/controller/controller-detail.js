@@ -4,6 +4,11 @@ $(document).ready(function () {
   // セッションストレージからデータ取得
   const category = sessionStorage.getItem("category");
   const imageMax = parseInt(sessionStorage.getItem("imageMax"));
+  const backScene = sessionStorage.getItem("prev");
+
+  // 戻るボタンの設定
+  const backButton = document.querySelector("a.bottomButton");
+  backButton.href = backScene;
 
   // 表示する画像のインデックスを取得
   const imageIndex = parseInt(sessionStorage.getItem("index"));
