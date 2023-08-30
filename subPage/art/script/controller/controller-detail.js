@@ -6,6 +6,11 @@ $(document).ready(function () {
   const imageMax = parseInt(sessionStorage.getItem("imageMax"));
   const backScene = sessionStorage.getItem("prev");
 
+  // 不正なアクセス
+  if (!category || !imageMax || !backScene) {
+    open("index.html", "_self");
+  }
+
   // 戻るボタンの設定
   const backButton = document.querySelector("a.bottomButton");
   backButton.href = backScene;

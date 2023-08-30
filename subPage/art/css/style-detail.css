@@ -91,14 +91,14 @@ body {
   }
 
   #buttonPrev {
-    top: calc(50vh - 25%);
+    top: 25%;
     right: 50vw;
     transform: translateX(50%) rotate(90deg);
   }
 
   #buttonNext {
     top: auto;
-    bottom: calc(50vh - 25%);
+    bottom: 25%;
     left: 50vw;
     transform: translateX(-50%) rotate(90deg);
   }
