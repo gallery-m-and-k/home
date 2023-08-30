@@ -69,8 +69,8 @@ body {
 @media screen and (max-width: 700px) {
   /* 画像 */
   .exhibit > img {
-    width: 80vw;
-    max-height: 30vh;
+    width: 85vw;
+    max-height: 40vh;
     max-width: none;
   }
 
@@ -91,14 +91,14 @@ body {
   }
 
   #buttonPrev {
-    top: 25%;
+    top: calc(50vh - 25%);
     right: 50vw;
     transform: translateX(50%) rotate(90deg);
   }
 
   #buttonNext {
     top: auto;
-    bottom: 25%;
+    bottom: calc(50vh - 25%);
     left: 50vw;
     transform: translateX(-50%) rotate(90deg);
   }
