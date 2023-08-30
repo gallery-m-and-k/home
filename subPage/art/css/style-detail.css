@@ -66,16 +66,36 @@ body {
 }
 
 @media screen and (max-width: 700px) {
+  .exhibit > img {
+    width: 90vw;
+    max-width: none;
+  }
+
+  .container > .exhibit.movePrev {
+    top: -25%;
+    right: auto;
+  }
+
+  .container > .exhibit.moveNext {
+    bottom: -25%;
+    left: auto;
+  }
+
+  /* ボタン */
+  .button {
+    width: 60px;
+  }
+
   #buttonPrev {
-    top: 10%;
+    top: 15%;
     right: 50vw;
-    transform: rotate(90deg);
+    transform: translateX(50%) rotate(90deg);
   }
 
   #buttonNext {
     top: auto;
-    bottom: 10%;
+    bottom: 15%;
     left: 50vw;
-    transform: rotate(90deg);
+    transform: translateX(-50%) rotate(90deg);
   }
 }
