@@ -32,15 +32,15 @@ body {
 .container > .exhibit.movePrev {
   width: auto;
   height: auto;
-  transform: translateX(-50%);
-  left: -200px;
+
+  right: 90vw;
 }
 
 .container > .exhibit.moveNext {
   width: auto;
   height: auto;
-  transform: translateX(-50%);
-  left: calc(100vw + 200px);
+
+  left: 90vw;
 }
 
 /* ボタン */
@@ -50,7 +50,6 @@ body {
   transform: translateY(-50%);
 
   width: 50px;
-  max-width: 7.5vw;
   object-fit: contain;
   cursor: pointer;
 
@@ -59,19 +58,24 @@ body {
 }
 
 #buttonPrev {
-  left: 15%;
+  right: 80vw;
 }
 
 #buttonNext {
-  right: 15%;
+  left: 80vw;
 }
 
 @media screen and (max-width: 700px) {
   #buttonPrev {
     top: 10%;
+    right: 50vw;
+    transform: rotate(90deg);
   }
 
   #buttonNext {
+    top: auto;
     bottom: 10%;
+    left: 50vw;
+    transform: rotate(90deg);
   }
 }
