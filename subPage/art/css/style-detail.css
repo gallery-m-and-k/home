@@ -50,6 +50,7 @@ body {
   transform: translateY(-50%);
 
   width: 50px;
+  min-width: 5%;
   object-fit: contain;
   cursor: pointer;
 
@@ -72,18 +73,20 @@ body {
   }
 
   .container > .exhibit.movePrev {
-    top: -25%;
+    bottom: 90%;
     right: auto;
   }
 
   .container > .exhibit.moveNext {
-    bottom: -25%;
+    top: 90%;
     left: auto;
   }
 
   /* ボタン */
   .button {
     width: 60px;
+    min-width: 0;
+    max-width: 25%;
   }
 
   #buttonPrev {
@@ -97,5 +100,10 @@ body {
     bottom: 15%;
     left: 50vw;
     transform: translateX(-50%) rotate(90deg);
+  }
+
+  .bottomButton {
+    bottom: 15%;
+    transform: translateY(-50%);
   }
 }
