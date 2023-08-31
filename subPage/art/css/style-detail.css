@@ -24,7 +24,7 @@ body {
   width: 50svw;
   min-width: calc(40svw + 10svw);
   height: 100svh;
-  margin: 0 3svw;
+  margin: 0 2svw;
 }
 
 .container .exhibit > img {
@@ -34,24 +34,8 @@ body {
 
 /* ボタン */
 .button {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-
   width: 40px;
-  object-fit: contain;
-  cursor: pointer;
-
-  position: fixed;
-  z-index: 500;
-}
-
-#buttonPrev {
-  right: 76.5svw;
-}
-
-#buttonNext {
-  left: 76.5svw;
+  height: auto;
 }
 
 .movePrev,
@@ -73,7 +57,12 @@ body {
     max-width: none;
     height: 50svh;
 
-    margin: 7.5svh 0;
+    margin: 5svh 0;
+  }
+
+  .container .exhibit > img {
+    width: autos;
+    height: 90%;
   }
 
   /* PREV/NEXTボタン */
@@ -82,24 +71,15 @@ body {
     min-width: 0;
   }
 
-  #buttonPrev {
-    top: 21svh;
-    right: 50svw;
-    transform: translateX(50%) rotate(90deg);
-  }
-
+  #buttonPrev,
   #buttonNext {
-    top: auto;
-    bottom: 21svh;
-    left: 50svw;
-    transform: translateX(-50%) rotate(90deg);
+    transform: rotate(90deg);
   }
 
   /* 戻るボタン */
 
   .bottomButton {
-    bottom: 19svh;
-    transform: translateY(-50%);
+    bottom: 120px;
   }
 
   .bottomButton > img {

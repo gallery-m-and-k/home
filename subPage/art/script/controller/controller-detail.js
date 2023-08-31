@@ -32,10 +32,8 @@ $(document).ready(function () {
     // 画像ＩＤを設定
     const targetId = imageIndex + i;
 
-    // 要素の作成
-    const exhibit = document.createElement("div");
-    exhibit.classList.add("exhibit");
-    container.appendChild(exhibit);
+    // 要素の取得
+    const exhibit = document.getElementById("exhibit_" + (2 + i));
 
     // ＩＤチェック
     if (targetId > 0 && targetId <= imageMax) {
@@ -49,14 +47,6 @@ $(document).ready(function () {
         ".jpg";
       image.src = fileName;
       exhibit.appendChild(image);
-
-      // クリックイベント追加用クラスの付与
-      if (i == -1) {
-        exhibit.classList.add("movePrev");
-      }
-      if (i == 1) {
-        exhibit.classList.add("moveNext");
-      }
     } else {
       // 画像なし
       exhibit.classList.add("blank");
