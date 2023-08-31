@@ -76,4 +76,14 @@ body {
   #buttonNext {
     transform: rotate(90deg);
   }
+
+  /* 戻るボタン */
+
+  .bottomButton {
+    bottom: 120px;
+  }
+
+  .bottomButton > img {
+    height: 20px;
+  }
 }
