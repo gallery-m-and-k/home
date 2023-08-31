@@ -56,6 +56,7 @@ body {
     width: auto;
     max-width: none;
     height: 50svh;
+    min-height: 50svh;
 
     margin: 5svh 0;
   }
