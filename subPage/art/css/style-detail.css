@@ -16,11 +16,10 @@ body {
 }
 
 .container .exhibit {
-  width: 100%;
-  max-width: 40vw;
+  width: 50vw;
   height: auto;
 
-  margin: 0 5vw;
+  margin: 0 3vw;
 }
 
 .container .exhibit.blank {
@@ -34,8 +33,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
 
-  width: 50px;
-  min-width: 5%;
+  width: 30px;
   object-fit: contain;
   cursor: pointer;
 
@@ -44,11 +42,11 @@ body {
 }
 
 #buttonPrev {
-  right: 72.5vw;
+  right: 76.5vw;
 }
 
 #buttonNext {
-  left: 72.5vw;
+  left: 76.5vw;
 }
 
 @media screen and (max-width: 700px) {
