@@ -77,7 +77,8 @@ body {
   }
 
   .container .exhibit > img {
-    width: 85%;
+    width: auto;
+    height: 30svh;
   }
 
   /* PREV/NEXTボタン */
