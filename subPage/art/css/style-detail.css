@@ -15,12 +15,17 @@ body {
   overflow: hidden;
 }
 
-.container img {
+.container .exhibit {
   width: 100%;
   max-width: 40vw;
   height: auto;
 
   margin: 0 5vw;
+}
+
+.container .exhibit.blank {
+  min-width: calc(40vw + 10vw);
+  margin: 0;
 }
 
 /* ボタン */
@@ -55,12 +60,17 @@ body {
     align-items: center;
   }
 
-  .container img {
+  .container .exhibit {
     width: auto;
     max-width: none;
     max-height: 35.5svh;
 
     margin: 5svh 0;
+  }
+
+  .container .exhibit.blank {
+    min-height: calc(33.5svh + 10svh);
+    margin: 0;
   }
 
   /* PREV/NEXTボタン */
@@ -71,7 +81,7 @@ body {
 
   #buttonPrev {
     top: 25svh;
-    right: 50vw;
+    right: 50svw;
     transform: translateX(50%) rotate(90deg);
   }
 

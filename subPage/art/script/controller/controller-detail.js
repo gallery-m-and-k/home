@@ -32,32 +32,38 @@ $(document).ready(function () {
     // 画像ＩＤを設定
     const targetId = imageIndex + i;
 
-    // ファイル存在フラグ
-    if (targetId < 1) {
-      arrowLeft = false;
-      continue;
-    }
-    if (targetId > imageMax) {
-      arrowRight = false;
-      continue;
-    }
+    // 要素の作成
+    let exhibit;
+    if (targetId > 0 && targetId <= imageMax) {
+      // 画像あり
+      exhibit = document.createElement("img");
+      exhibit.classList.add("exhibit");
+      let fileName =
+        "./image/" +
+        category +
+        "/view/art_" +
+        String(targetId).padStart(4, "0") +
+        ".jpg";
+      exhibit.src = fileName;
+      if (i == -1) {
+        exhibit.classList.add("movePrev");
+      }
+      if (i == 1) {
+        exhibit.classList.add("moveNext");
+      }
+    } else {
+      // 画像なし
+      exhibit = document.createElement("div");
+      exhibit.classList.add("exhibit");
+      exhibit.classList.add("blank");
 
-    // 要素作成
-    let fileName =
-      "./image/" +
-      category +
-      "/view/art_" +
-      String(targetId).padStart(4, "0") +
-      ".jpg";
-    const image = document.createElement("img");
-    image.src = fileName;
-    if (i == -1) {
-      image.classList.add("movePrev");
+      if (targetId < 1) {
+        arrowLeft = false;
+      } else if (targetId > imageMax) {
+        arrowRight = false;
+      }
     }
-    if (i == 1) {
-      image.classList.add("moveNext");
-    }
-    container.appendChild(image);
+    container.appendChild(exhibit);
   }
 
   // クリックイベント
