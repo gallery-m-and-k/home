@@ -8,23 +8,28 @@ body {
 /* 画像表示エリア */
 .container {
   display: flex;
-  width: 100vw;
-  height: 100vh;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
+  width: 100vw;
+  height: 100vh;
 }
 
 .container .exhibit {
-  width: 50vw;
-  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  width: 50vw;
+  min-width: calc(40vw + 10vw);
+  height: 100vh;
   margin: 0 3vw;
 }
 
-.container .exhibit.blank {
-  min-width: calc(40vw + 10vw);
-  margin: 0;
+.container .exhibit > img {
+  width: 95%;
+  height: auto;
 }
 
 /* ボタン */
@@ -33,7 +38,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
 
-  width: 30px;
+  width: 40px;
   object-fit: contain;
   cursor: pointer;
 
@@ -49,6 +54,11 @@ body {
   left: 76.5vw;
 }
 
+.movePrev,
+.moveNext {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 700px) {
   /* 画像 */
   .container {
@@ -61,14 +71,13 @@ body {
   .container .exhibit {
     width: auto;
     max-width: none;
-    max-height: 35.5svh;
+    min-height: 35.5svh;
 
     margin: 5svh 0;
   }
 
-  .container .exhibit.blank {
-    min-height: calc(33.5svh + 10svh);
-    margin: 0;
+  .container .exhibit > img {
+    width: 85%;
   }
 
   /* PREV/NEXTボタン */

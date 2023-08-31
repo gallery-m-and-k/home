@@ -33,18 +33,24 @@ $(document).ready(function () {
     const targetId = imageIndex + i;
 
     // 要素の作成
-    let exhibit;
+    const exhibit = document.createElement("div");
+    exhibit.classList.add("exhibit");
+    container.appendChild(exhibit);
+
+    // ＩＤチェック
     if (targetId > 0 && targetId <= imageMax) {
       // 画像あり
-      exhibit = document.createElement("img");
-      exhibit.classList.add("exhibit");
-      let fileName =
+      const image = document.createElement("img");
+      const fileName =
         "./image/" +
         category +
         "/view/art_" +
         String(targetId).padStart(4, "0") +
         ".jpg";
-      exhibit.src = fileName;
+      image.src = fileName;
+      exhibit.appendChild(image);
+
+      // クリックイベント追加用クラスの付与
       if (i == -1) {
         exhibit.classList.add("movePrev");
       }
@@ -53,8 +59,6 @@ $(document).ready(function () {
       }
     } else {
       // 画像なし
-      exhibit = document.createElement("div");
-      exhibit.classList.add("exhibit");
       exhibit.classList.add("blank");
 
       if (targetId < 1) {
@@ -63,7 +67,6 @@ $(document).ready(function () {
         arrowRight = false;
       }
     }
-    container.appendChild(exhibit);
   }
 
   // クリックイベント
