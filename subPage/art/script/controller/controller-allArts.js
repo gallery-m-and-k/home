@@ -4,8 +4,9 @@ $(document).ready(function () {
   const imageContainer = document.querySelector(".gallery");
 
   // 表示する画像の数
-  const imageMaxCount = 259;
+  const imageMaxCount = 261;
 
+  // 画像収納ディレクトリ
   const folderPath = "./image/colorAndShape";
 
   // ランダムにインデックスを指定

@@ -18,7 +18,7 @@ $(document).ready(function () {
   const numImagesToShow = 15;
 
   // 画像の総数
-  const imageMaxCount = 259;
+  const imageMaxCount = 261;
 
   // 汎用データをセッションストレージに記憶
   sessionStorage.setItem("category", category);
@@ -39,16 +39,17 @@ $(document).ready(function () {
 
   // 抜き出したファイル名を使用して、画像を表示する。
   targets.forEach((k) => {
-    const folderPath = "./image/" + category;
-
     // 要素作成
     const image = document.createElement("img");
     image.classList.add("item");
     image.classList.add("clickable");
-    image.setAttribute(
-      "data-src",
-      folderPath + "/click/art_" + String(k).padStart(4, "0") + ".png"
-    );
+    const imageFileName =
+      "./image/" +
+      category +
+      "/click/art_" +
+      String(k).padStart(4, "0") +
+      ".png";
+    image.setAttribute("data-src", imageFileName);
     image.setAttribute("data-index", k);
     imageContainer.appendChild(image);
 
